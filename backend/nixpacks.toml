@@ -1,0 +1,8 @@
+# nixpacks.toml
+[build]
+# Use Maven to build the app
+command = "mvn clean package -DskipTests"
+
+[start]
+# Find your JAR (excluding SNAPSHOTs) and run it on Railway's port
+cmd = "java -jar $(find target -name '*.jar' ! -name '*SNAPSHOT*')"
